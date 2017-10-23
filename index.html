@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html ng-app="myModule">
+<head>
+<title> Accion Lab Coding Test </title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+</head>
+
+<body ng-controller="controller">
+	<div id="container">
+		<table summary="User data information sorting table">
+			<thead>
+				<tr>
+					<th width="10%" ng-click="sortDate('userId')" ng-class="sortClass('userId')" scope="col">User ID<span></span></th>
+					<th width="10%" ng-click="sortDate('id')" ng-class="sortClass('id')" scope="col">ID<span></span></th>
+					<th width="30%" ng-click="sortDate('title')" ng-class="sortClass('title')" scope="col">Title<span></span></th>
+					<th width="50%" ng-click="sortDate('body')" ng-class="sortClass('body')" scope="col">Body Content<span></span></th>
+				</tr>
+			</thead>
+			<tr ng-repeat="data in userData | orderBy: sortColumn : reverseSort">
+				<td>{{data.userId}}</td>
+				<td>{{data.id}}</td>
+				<td>{{data.title}}</td>
+				<td>{{data.body}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
